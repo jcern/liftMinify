@@ -42,21 +42,21 @@ case class MyError(localFilename:String) extends ErrorReporter {
     if (line < 0) {
       System.err.println("  " + message)
     } else {
-      System.err.println("  " + line + ':' + lineOffset + ':' + message);
+      System.err.println("  " + line + ':' + lineOffset + ':' + message)
     }
   }
 
   def error(message:String, sourceName:String, line:Int, lineSource:String,  lineOffset:Int) {
     if (line < 0) {
-      System.err.println("  " + message);
+      System.err.println("  " + message)
     } else {
-      System.err.println("  " + line + ':' + lineOffset + ':' + message);
+      System.err.println("  " + line + ':' + lineOffset + ':' + message)
     }
   }
 
   def runtimeError(message:String, sourceName:String,
-    line:Int, lineSource:String,  lineOffset:Int) {
-    error(message, sourceName, line, lineSource, lineOffset);
-    return new EvaluatorException(message);
+    line:Int, lineSource:String,  lineOffset:Int) = {
+    error(message, sourceName, line, lineSource, lineOffset)
+    new EvaluatorException(message)
   }
 }
